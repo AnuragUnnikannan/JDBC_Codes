@@ -1,4 +1,3 @@
-import java.lang.Thread.State;
 import java.sql.*;
 public class AccountsQ3
 {

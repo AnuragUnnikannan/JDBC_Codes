@@ -7,11 +7,11 @@ public class AccountsQ3
     {
         try
         {
-            con = DBConnection.getConnection("mydb", "system", "mysql");
-            String query = "UPDATE Accounts SET balance=balance+500";
-            DBConnection.executeChanges(query, con);
+            con = DBConnection.getConnection("mydb");
+            String query = "UPDATE accounts SET balance=balance+500";
+            DBConnection.executeChanges(query);
             st = con.createStatement();
-            DBConnection.printQueryResult(st.executeQuery("SELECT * FROM Accounts"));
+            DBConnection.printQueryResult(st.executeQuery("SELECT * FROM accounts"));
         }
         catch(Exception e)
         {

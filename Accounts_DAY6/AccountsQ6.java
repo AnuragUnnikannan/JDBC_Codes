@@ -9,15 +9,15 @@ public class AccountsQ6
         try
         {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            con = DBConnection.getConnection("mydb", "system", "mysql");
+            con = DBConnection.getConnection("mydb");
             System.out.println("Enter account number:");
             int accno = Integer.parseInt(br.readLine());
             System.out.println("Enter amount to be deposited:");
             float amt = Float.parseFloat(br.readLine());
-            String query = "UPDATE Accounts SET balance=balance+"+amt+" WHERE accno="+accno;
-            DBConnection.executeChanges(query, con);
+            String query = "UPDATE accounts SET balance=balance+"+amt+" WHERE accno="+accno;
+            DBConnection.executeChanges(query);
             st = con.createStatement();
-            DBConnection.printQueryResult(st.executeQuery("SELECT * FROM ACCOUNTS"));
+            DBConnection.printQueryResult(st.executeQuery("SELECT * FROM accounts"));
         }
         catch(Exception e)
         {

@@ -7,11 +7,11 @@ public class AccountsQ4
     {
         try
         {
-            con = DBConnection.getConnection("mydb", "system", "mysql");
-            String query = "DELETE FROM Accounts WHERE balance < 10000";
-            DBConnection.executeChanges(query, con);
+            con = DBConnection.getConnection("mydb");
+            String query = "DELETE FROM accounts WHERE balance < 10000";
+            DBConnection.executeChanges(query);
             st = con.createStatement();
-            DBConnection.printQueryResult(st.executeQuery("SELECT * FROM Accounts"));
+            DBConnection.printQueryResult(st.executeQuery("SELECT * FROM accounts"));
         }
         catch(Exception e)
         {

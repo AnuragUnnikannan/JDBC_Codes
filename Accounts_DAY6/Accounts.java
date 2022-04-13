@@ -11,11 +11,11 @@ public class Accounts
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try
         {
-            con = DBConnection.getConnection("mydb", "system", "mysql");
-            String query = "CREATE TABLE IF NOT EXISTS Accounts(accno int primary key, accname varchar(20), balance float)";
-            DBConnection.executeChanges(query, con);
-            DBConnection.DESC("Accounts", con);
-            int initialID = DBConnection.generateID(con);
+            con = DBConnection.getConnection("mydb");
+            String query = "CREATE TABLE IF NOT EXISTS accounts(accno int primary key, accname varchar(20), balance float)";
+            DBConnection.executeChanges(query);
+            DBConnection.DESC("accounts");
+            int initialID = DBConnection.generateID();
             for (int i = initialID; i < initialID + 2; i++)
             {
                 System.out.println("Account No. "+i);
@@ -23,12 +23,12 @@ public class Accounts
                 String accname = br.readLine();
                 System.out.println("Enter balance: ");
                 float balance = Float.parseFloat(br.readLine());
-                query = "INSERT INTO Accounts VALUES(" + i + ", '" + accname + "', " + balance + ")";
-                DBConnection.executeChanges(query, con);
+                query = "INSERT INTO accounts VALUES(" + i + ", '" + accname + "', " + balance + ")";
+                DBConnection.executeChanges(query);
                 
             }
             st = con.createStatement();
-            DBConnection.printQueryResult(st.executeQuery("SELECT * FROM Accounts"));
+            DBConnection.printQueryResult(st.executeQuery("SELECT * FROM accounts"));
         }
         catch (Exception e)
         {

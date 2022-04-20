@@ -5,9 +5,9 @@ public class CheckQuery
     static Connection con;
     public static void main(String args[])throws Exception
     {
-        con = DBConnection.getConnection("mydb", "system", "mysql");
-        String query = "SELECT * FROM Accounts";
-        ResultSet rs = DBConnection.select(query, con);
+        con = DBConnection.getConnection("mydb");
+        String query = "SELECT * FROM accounts";
+        ResultSet rs = DBConnection.select(query);
         DBConnection.printQueryResult(rs);
     }
 }

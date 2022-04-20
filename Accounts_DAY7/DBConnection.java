@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.io.*;
 public class DBConnection
 {
     static final String URI = "jdbc:mysql://localhost:3306/";   //For connection to database
@@ -10,7 +11,7 @@ public class DBConnection
         return;
     }
 
-    public static ResultSet select(String query, Connection con)
+    public static ResultSet select(String query)
     {
         try
         {
@@ -44,17 +45,22 @@ public class DBConnection
         }
     }
 
-    public static void executeChanges(String query, Connection con)throws Exception
+    public static void executeChanges(String query)throws Exception
     {
         Statement st = con.createStatement();
         st.executeUpdate(query);
     }
 
-    public static Connection getConnection(String dbName, String username, String password)
+    public static Connection getConnection(String dbName)throws Exception
     {
         try
         {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("Enter username:");
+            String username = br.readLine();
+            System.out.println("Enter password");
+            String password = br.readLine();
             con = DriverManager.getConnection(URI+dbName, username, password);
             System.out.println("Connection successful");
             return con;
@@ -66,9 +72,8 @@ public class DBConnection
         }
     }
 
-    public static void DESC(String table, Connection con) throws Exception
+    public static void DESC(String table) throws Exception
     {
-        table=table.toUpperCase();
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("select * from "+table);
         ResultSetMetaData rsmd = rs.getMetaData();
@@ -81,12 +86,12 @@ public class DBConnection
         }
     }
 
-    public static int generateID(Connection con)throws Exception
+    public static int generateID()throws Exception
     {
         try
         {
             Statement st = con.createStatement();
-            String query = "SELECT MAX(accno) FROM Accounts";
+            String query = "SELECT MAX(accno) FROM accounts";
             int x;
             ResultSet rs = st.executeQuery(query);
             rs.next();

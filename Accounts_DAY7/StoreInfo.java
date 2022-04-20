@@ -10,8 +10,8 @@ public class StoreInfo
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try
         {
-            con = DBConnection.getConnection("mydb", "system", "mysql");
-            int initialID = DBConnection.generateID(con);
+            con = DBConnection.getConnection("mydb");
+            int initialID = DBConnection.generateID();
             for (int i = initialID; i < initialID + 2; i++)
             {
                 System.out.println("Account No. "+i);
@@ -19,7 +19,7 @@ public class StoreInfo
                 String accname = br.readLine();
                 System.out.println("Enter balance: ");
                 float balance = Float.parseFloat(br.readLine());
-                String query = "INSERT INTO Accounts VALUES(?, ?, ?)";
+                String query = "INSERT INTO accounts VALUES(?, ?, ?)";
                 ps = con.prepareStatement(query);
                 ps.setInt(1, i);
                 ps.setString(2, accname);
@@ -27,7 +27,7 @@ public class StoreInfo
                 ps.executeUpdate();
             }
             st = con.createStatement();
-            DBConnection.printQueryResult(st.executeQuery("SELECT * FROM Accounts"));
+            DBConnection.printQueryResult(st.executeQuery("SELECT * FROM accounts"));
         }
         catch (Exception e)
         {

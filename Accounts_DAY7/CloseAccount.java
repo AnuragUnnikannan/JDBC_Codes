@@ -9,13 +9,13 @@ public class CloseAccount
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try
         {
-            con = DBConnection.getConnection("mydb", "system", "mysql");
+            con = DBConnection.getConnection("mydb");
             System.out.println("Enter account:");
             int accno = Integer.parseInt(br.readLine());
-            String query = "DELETE FROM Accounts WHERE accno="+accno;
+            String query = "DELETE FROM accounts WHERE accno="+accno;
             st = con.createStatement();
-            DBConnection.executeChanges(query, con);
-            query = "SELECT * FROM Accounts";
+            DBConnection.executeChanges(query);
+            query = "SELECT * FROM accounts";
             DBConnection.printQueryResult(st.executeQuery(query));
         }
         catch(Exception e)

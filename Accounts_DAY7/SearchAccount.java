@@ -7,18 +7,18 @@ public class SearchAccount
     static ResultSet rs;
     public static void main(String args[])throws Exception
     {
+        con = DBConnection.getConnection("mydb");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter account number:");
         int accno = Integer.parseInt(br.readLine());
-        con = DBConnection.getConnection("mydb", "system", "mysql");
-        String query = "SELECT EXISTS(SELECT * FROM Accounts WHERE accno="+accno+")";
+        String query = "SELECT EXISTS(SELECT * FROM accounts WHERE accno="+accno+")";
         st = con.createStatement();
         ResultSet rs = st.executeQuery(query);
         rs.next();
         int res = rs.getInt(1);
         if(res == 1)
         {
-            query = "SELECT * FROM Accounts WHERE accno="+accno;
+            query = "SELECT * FROM accounts WHERE accno="+accno;
             DBConnection.printQueryResult(st.executeQuery(query));
         }
         else

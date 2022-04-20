@@ -1,0 +1,10 @@
+What is transaction in context of Java Database Connection?
+
+A single unit of work with DBMS in which multiple DML statements are submitted.
+In transaction we have 3 methods:
+1. setAutoCommit(boolean) - to begin the transaction if false is supplied as argument while calling the method
+			     if true, it will allow to group multiple subsequent statement under the same transaction. This trasaction will be commited when Connection.commit() is invoked. However, only calling by Connection.setAutoCommit(false) means that any statement created using this connection will be commited together when we call Connection.commit(). It means it does not create transaction.
+			     
+			     
+2. commit() - used to end the transaction successfully.
+3. rollback() - end the transaction with failure

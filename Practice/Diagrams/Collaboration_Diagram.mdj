@@ -3140,12 +3140,12 @@
 												"$ref": "AAAAAAGAqcVH1ISegLc="
 											},
 											"font": "Arial;13;0",
-											"left": 542.52734375,
+											"left": 550.52734375,
 											"top": 358.5,
 											"width": 106.9453125,
 											"height": 13,
-											"alpha": -0.39479102108045544,
-											"distance": 39,
+											"alpha": -0.328553101139156,
+											"distance": 46.486557196677836,
 											"text": "7 : pay_by_master"
 										},
 										{
@@ -3813,7 +3813,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -3850,7 +3851,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -3887,7 +3889,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -3924,7 +3927,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -4015,7 +4019,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -4079,7 +4084,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -4087,7 +4093,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGAqZvB2EPHi7s="
 					},
-					"name": "Role7"
+					"name": "Role7",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -4095,7 +4102,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGAqZvB2EPHi7s="
 					},
-					"name": "Role8"
+					"name": "Role8",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -4103,7 +4111,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGAqZvB2EPHi7s="
 					},
-					"name": "Role9"
+					"name": "Role9",
+					"type": ""
 				}
 			]
 		}
